@@ -1,0 +1,25 @@
+name: "Increment Version"
+description: "A GitHub Action to increment a version number based on semantic versioning."
+author: "Your Name"
+inputs:
+  version:
+    description: "The current version."
+    required: true
+  increment:
+    description: "The type of increment: major, minor, or patch."
+    required: true
+outputs:
+  new_version:
+    description: "The incremented version."
+runs:
+  using: "composite"
+  steps:
+    - name: Increment version
+      id: increment_version
+      run: |
+        chmod +x increment_version.sh
+        ./increment_version.sh "${{ inputs.version }}" "${{ inputs.increment }}"
+      shell: bash
+    - name: Set output
+      run: echo "new_version=$(cat new_version.txt)" >> $GITHUB_ENV
+      shell: bash
