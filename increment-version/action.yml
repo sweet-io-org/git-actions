@@ -15,7 +15,7 @@ runs:
   using: "composite"
   steps:
     - name: List directory contents
-      run: ls -l ./github-actions/increment-version
+      run: ls -l ./git-actions/increment-version
       shell: bash
     - name: Increment version
       id: increment_version
