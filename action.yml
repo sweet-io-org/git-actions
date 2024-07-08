@@ -20,8 +20,8 @@ runs:
     - name: Increment version
       id: increment_version
       run: |
-        chmod +x increment_version.sh
-        ./increment_version.sh "${{ inputs.version }}" "${{ inputs.increment }}"
+        chmod +x $GITHUB_ACTION_PATH/increment_version.sh
+        $GITHUB_ACTION_PATH/increment_version.sh "${{ inputs.version }}" "${{ inputs.increment }}"
       shell: bash
     - name: Set output
       run: echo "new_version=$(cat new_version.txt)" >> $GITHUB_ENV
