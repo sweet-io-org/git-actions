@@ -16,6 +16,7 @@ runs:
   steps:
     - name: List directory contents
       run: ls -l ./github-actions/increment-version
+      shell: bash
     - name: Increment version
       id: increment_version
       run: |
